@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd32"
+  },
+  "ingredient": "tomato",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd33"
+  },
+  "ingredient": "lemon",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd34"
+  },
+  "ingredient": "potato",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd35"
+  },
+  "ingredient": "rice",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd36"
+  },
+  "ingredient": "ketchup",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd37"
+  },
+  "ingredient": "lettuce",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd38"
+  },
+  "ingredient": "onion",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd39"
+  },
+  "ingredient": "cheese",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd3a"
+  },
+  "ingredient": "meat",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "67dda6e9bad506aa7246cd3b"
+  },
+  "ingredient": "chicken",
+  "stock": 5
+}]

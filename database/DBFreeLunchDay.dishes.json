@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd1c"
+  },
+  "name": "Ensalada César",
+  "ingredients": [
+    {
+      "name": "lettuce",
+      "quantity": 3
+    },
+    {
+      "name": "tomato",
+      "quantity": 2
+    },
+    {
+      "name": "cheese",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd1d"
+  },
+  "name": "Arroz con Pollo",
+  "ingredients": [
+    {
+      "name": "rice",
+      "quantity": 2
+    },
+    {
+      "name": "chicken",
+      "quantity": 1
+    },
+    {
+      "name": "onion",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd1e"
+  },
+  "name": "Papas Fritas con Ketchup",
+  "ingredients": [
+    {
+      "name": "potato",
+      "quantity": 2
+    },
+    {
+      "name": "ketchup",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd1f"
+  },
+  "name": "Sopa de Cebolla",
+  "ingredients": [
+    {
+      "name": "onion",
+      "quantity": 2
+    },
+    {
+      "name": "cheese",
+      "quantity": 1
+    },
+    {
+      "name": "tomato",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd20"
+  },
+  "name": "Carne a la Plancha",
+  "ingredients": [
+    {
+      "name": "meat",
+      "quantity": 1
+    },
+    {
+      "name": "lemon",
+      "quantity": 1
+    },
+    {
+      "name": "onion",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67dd9417bad506aa7246cd21"
+  },
+  "name": "Pollo en Salsa",
+  "ingredients": [
+    {
+      "name": "chicken",
+      "quantity": 1
+    },
+    {
+      "name": "ketchup",
+      "quantity": 1
+    },
+    {
+      "name": "rice",
+      "quantity": 1
+    },
+    {
+      "name": "lemon",
+      "quantity": 1
+    }
+  ]
+}]
