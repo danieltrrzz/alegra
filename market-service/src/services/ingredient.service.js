@@ -26,16 +26,17 @@ module.exports = (() => {
   };
 
   /**
-   * Actualizar el stock de un ingrediente solo si el stock actual es mayor o igual al stock a restar
+   * Actualizar el stock de un ingrediente
    * @param {String} ingredient 
    * @param {Number} stock 
+   * @param {Boolean} add me indica si se agrega o se resta del stock
    * @returns 
    */
   const update = async (ingredient, stock) => {
     try {
       const result = await InventoryModel.findOneAndUpdate(
-        { ingredient, stock: { $gte: stock } },
-        { $inc: { stock: -stock } },
+        { ingredient },
+        { $inc: { stock }},
         { new: true }
       );
 

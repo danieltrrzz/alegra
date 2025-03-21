@@ -8,8 +8,9 @@ module.exports = (() => {
   const OrderModel = require('../models/order.model');
 
   /**
-   * Obtener uno o todos los ingredientes
-   * @param {String} ingredient 
+   * Obtener una orden por su id
+   * @param {*} id 
+   * @returns 
    */
   const getById = async (id) => {
     try {
@@ -22,7 +23,29 @@ module.exports = (() => {
     }
   };
 
+  /**
+   * Actualizar una orden
+   * @param {*} id 
+   * @param {*} data 
+   * @returns 
+   */
+  const update = async (id, data) => {
+    try {
+      const result = await OrderModel.findByIdAndUpdate(
+        id, 
+        data, 
+        { new: true }
+      );    
+      return result;
+    }
+    catch (error) {
+      console.error(`Error al actualizar una orden`, error);
+      throw new Error(`Error al actualizar una orden`);
+    };
+  };
+
   return {
-    getById
+    getById,
+    update
   };
 })();

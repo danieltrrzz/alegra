@@ -1,22 +1,22 @@
 /**
- * @fileoverview Servicio para manejar la lógica de negocio del inventario
- * @name inventory.service.js
+ * @fileoverview Servicio para manejar la lógica de negocio del mercado
+ * @name market.service.js
  */
 module.exports = (() => {
   'use strict';
-  
+
   const orderService = require('./order.service');
   const ingredientService = require('./ingredient.service');
+  const marketPlaceService = require('./market-place.service');
   const { orderStatus } = require('../utils/const.util');
 
   /**
    * Inicia el proceso de inventario para una orden
    * NOTA: Se reciben los dos producer para evitar la dependencia circular
    * @param {String} orderId 
-   * @param {Function} marketTopicProducer
-   * @param {Function} ingredientsTopicProducer
+   * @param {Function} inventoryTopicProducer
    */
-  const inventoryProcessStart = async (orderId, marketTopicProducer, ingredientsTopicProducer) => {
+  const marketProcessStart = async (orderId, inventoryTopicProducer) => {
     try {
       const ordenResult = await orderService.getById(orderId);
       if (!ordenResult || ordenResult.status !== orderStatus.KITCHEN) {
@@ -29,48 +29,45 @@ module.exports = (() => {
       // Consulto los ingredientes de la orden
       const filter = {
         ingredient: { $in: order.dish.ingredients.map(ingredient => ingredient.name) },
-        stock: { $gte: 0 }
       };
       const ingredientsResult = await ingredientService.get(null, filter);
       const ingredients = ingredientsResult.map(ingredient => ingredient.toObject());
 
-      /**
-       * Verifico si hay stock suficiente para todos los ingredientes, si almenos uno 
-       * de los ingredientes no tiene stock suficiente, se procede a solicitar la 
-       * reposición de los ingredientes faltantes al servicio de compras
-       */
+      //Extraigo los ingredientes que no tienen stock suficiente para la orden
       const ingredientsOutOfStock = order.dish.ingredients.filter(ingredient => {
-        const ingredientStock = ingredients.find(inventory => inventory.ingredient === ingredient.name);
+        const ingredientStock = ingredients.find(inventory => inventory.stock >= 0 && inventory.ingredient === ingredient.name);
         return ingredientStock && ingredientStock.stock < ingredient.quantity;
       });
 
-      // Si hay ingredientes sin stock suficiente, se solicita la reposición y se finaliza el proceso
-      if (ingredientsOutOfStock.length > 0) {
-        await marketTopicProducer({ orderId: order._id });
+      // Si por alguna razon todos los ingredientes tienen stock suficiente, se envía la orden al proceso de inventario
+      if (ingredientsOutOfStock.length == 0) {
+        await inventoryTopicProducer({ orderId: order._id });
         return;
       };
-      
-      // Se actualiza el inventario de los ingredientes restando la cantidad usada
+
+      // Realizo la compra de los ingredientes faltantes 
+      let promisesToBuyIngredients = [];
+      ingredientsOutOfStock.forEach(ingredient => {
+        promisesToBuyIngredients.push(marketPlaceService.purchasingIngredients(ingredient.name));
+      });  
+      const ingredientsPurchasedResult = await Promise.all(promisesToBuyIngredients);
+
+      // Se actualiza el inventario de los ingredientes comprados y se notifica al servicio de pedidos
       let promisesToUpdateInventory = [];
-      order.dish.ingredients.forEach(ingredient => {
+      ingredientsPurchasedResult.forEach(buy => {
         promisesToUpdateInventory.push(
-          ingredientService.update(ingredient.name, ingredient.quantity)
+          ingredientService.update(buy.ingredient, buy.quantityPurchase, true)
         );
       });
       await Promise.all(promisesToUpdateInventory);
+      await inventoryTopicProducer({ orderId: order._id });
 
-      // Se actualiza el estado de la orden a "Finalizada"
-      await orderService.update(order._id, { status: orderStatus.FINISHED });
-
-      // Se notifica al servicio de cocina que los ingredientes están listos
-      await ingredientsTopicProducer({ orderId: order._id });
-      
     } catch (error) {
       console.error(`❌ error al procesar la orden ${orderId}`, error);
     };
-  };  
+  };
 
   return {
-    inventoryProcessStart
+    marketProcessStart
   };
 })();

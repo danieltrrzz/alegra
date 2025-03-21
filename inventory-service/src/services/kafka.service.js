@@ -4,11 +4,15 @@
  */
 module.exports = (() => {
   'use strict';
+  
   const { Kafka } = require('kafkajs');
   const { v4: uuidv4 } = require("uuid");
-  const { KAFKA_BROKER, KAFKA_CLIENT_ID, KAFKA_INVENTORY_TOPIC, KAFKA_MARKET_TOPIC, KAFKA_INGREDIENTS_TOPIC } = require('../config/env');
+  const { MAX_LISTENERS ,KAFKA_BROKER, KAFKA_CLIENT_ID, KAFKA_INVENTORY_TOPIC, KAFKA_MARKET_TOPIC, KAFKA_INGREDIENTS_TOPIC } = require('../config/env');
   const uniqueId = uuidv4();
   const { inventoryProcessStart } = require('./inventory.service');
+  // Se establece el número máximo de listeners para evitar warnings
+  const EventEmitter = require('events');
+  EventEmitter.defaultMaxListeners = MAX_LISTENERS;  
 
   /**
    * Configuración de Kafka
@@ -69,7 +73,7 @@ module.exports = (() => {
       });
       // Inicializo el consumidor de mensajes
       await consumer.run({
-        eachMessage: async ({ topic, partition, message }) => {
+        eachMessage: ({ topic, partition, message }) => {
           try {
             const { orderId } = JSON.parse(message.value.toString());
             orderId
