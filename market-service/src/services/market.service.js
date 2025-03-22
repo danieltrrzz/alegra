@@ -8,11 +8,12 @@ module.exports = (() => {
   const orderService = require('./order.service');
   const ingredientService = require('./ingredient.service');
   const marketPlaceService = require('./market-place.service');
+  const purchaseHistoryService = require('./purchase-history.service');
   const { orderStatus } = require('../utils/const.util');
 
   /**
    * Inicia el proceso de inventario para una orden
-   * NOTA: Se reciben los dos producer para evitar la dependencia circular
+   * NOTA: Se reciben el producer como callback para evitar la dependencia circular
    * @param {String} orderId 
    * @param {Function} inventoryTopicProducer
    */
@@ -29,13 +30,14 @@ module.exports = (() => {
       // Consulto los ingredientes de la orden
       const filter = {
         ingredient: { $in: order.dish.ingredients.map(ingredient => ingredient.name) },
+        stock: { $gte: 0 }
       };
       const ingredientsResult = await ingredientService.get(null, filter);
       const ingredients = ingredientsResult.map(ingredient => ingredient.toObject());
 
       //Extraigo los ingredientes que no tienen stock suficiente para la orden
       const ingredientsOutOfStock = order.dish.ingredients.filter(ingredient => {
-        const ingredientStock = ingredients.find(inventory => inventory.stock >= 0 && inventory.ingredient === ingredient.name);
+        const ingredientStock = ingredients.find(inventory => inventory.ingredient === ingredient.name);
         return ingredientStock && ingredientStock.stock < ingredient.quantity;
       });
 
@@ -52,14 +54,21 @@ module.exports = (() => {
       });  
       const ingredientsPurchasedResult = await Promise.all(promisesToBuyIngredients);
 
-      // Se actualiza el inventario de los ingredientes comprados y se notifica al servicio de pedidos
-      let promisesToUpdateInventory = [];
-      ingredientsPurchasedResult.forEach(buy => {
-        promisesToUpdateInventory.push(
-          ingredientService.update(buy.ingredient, buy.quantityPurchase, true)
-        );
-      });
-      await Promise.all(promisesToUpdateInventory);
+      // Se actualiza el inventario de los ingredientes comprados       
+      await ingredientService.update(ingredientsPurchasedResult);
+
+      // Se crea el historial de compra
+      const purchaseHistoryData = {
+        orderId: order._id,
+        dishName: order.dish.name,
+        ingredientsPurchased: ingredientsPurchasedResult.map(buy => ({
+          ingredient: buy.ingredient,
+          quantityPurchase: buy.quantityPurchase
+        }))
+      };
+      purchaseHistoryService.create(purchaseHistoryData);
+
+      // Se notifica al servicio de inventario para que procese la orden
       await inventoryTopicProducer({ orderId: order._id });
 
     } catch (error) {

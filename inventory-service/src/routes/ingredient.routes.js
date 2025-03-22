@@ -1,6 +1,6 @@
 /**
  * @fileoverview Modulo para manejar las rutas de los ingredientes
- * @name inventory.controller.js
+ * @name inventory.routes.js
  */
 module.exports = (() => {
   'use strict';

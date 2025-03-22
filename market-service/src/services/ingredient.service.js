@@ -9,7 +9,9 @@ module.exports = (() => {
 
   /**
    * Obtener uno o todos los ingredientes
-   * @param {String} ingredient 
+   * @param {String} ingredient
+   * @param {Object} filter
+   * @returns {Promise<Object>} Ingrediente(s) encontrado(s)
    */
   const get = async (ingredient = null, filter = {}) => {
     try {
@@ -26,25 +28,25 @@ module.exports = (() => {
   };
 
   /**
-   * Actualizar el stock de un ingrediente
-   * @param {String} ingredient 
-   * @param {Number} stock 
-   * @param {Boolean} add me indica si se agrega o se resta del stock
-   * @returns 
+   * Actualizar el stock de los ingredientes
+   * @param {[ ingredient: String, quantityPurchase: Number]} ingredients 
+   * @returns {Promise<Object>} Ingrediente actualizado
    */
-  const update = async (ingredient, stock) => {
+  const update = async (ingredients) => {
     try {
-      const result = await InventoryModel.findOneAndUpdate(
-        { ingredient },
-        { $inc: { stock }},
-        { new: true }
-      );
+      const bulkOperations = ingredients.map(buy => ({
+        updateOne: {
+          filter: { ingredient: buy.ingredient },
+          update: { $inc: { stock: buy.quantityPurchase } }
+        }
+      }));
+      const result = await InventoryModel.bulkWrite(bulkOperations);
 
       return result;
 
     } catch (error) {
-      console.error(`Error al actualizar el stock del ingrediente ${ingredient}`, error);
-      throw new Error(`Error al actualizar el stock del ingrediente ${ingredient}`);
+      console.error(`Error al actualizar el stock de los ingredientes ${ingredients}`, error);
+      throw new Error(`Error al actualizar el stock de los ingrediente ${ingredients}`);
     }
   };
 

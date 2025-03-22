@@ -67,8 +67,6 @@ module.exports = (() => {
           };
         },
       });
-      console.log('🚀 Servicio de mercado corriendo correctamente');
-
     } catch (error) {
       console.error(`❌ Error al consumir mensajes del tópico ${KAFKA_MARKET_TOPIC}`, error);
     };

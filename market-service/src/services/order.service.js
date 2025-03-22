@@ -8,8 +8,9 @@ module.exports = (() => {
   const OrderModel = require('../models/order.model');
 
   /**
-   * Obtener uno o todos los ingredientes
-   * @param {String} ingredient 
+   * Obtener una orden por su id
+   * @param {String} id
+   * @returns {Promise<Object>} Orden encontrada
    */
   const getById = async (id) => {
     try {

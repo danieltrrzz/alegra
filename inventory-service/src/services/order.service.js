@@ -9,8 +9,8 @@ module.exports = (() => {
 
   /**
    * Obtener una orden por su id
-   * @param {*} id 
-   * @returns 
+   * @param {String} id
+   * @returns {Promise<Object>} Orden encontrada
    */
   const getById = async (id) => {
     try {
@@ -27,7 +27,7 @@ module.exports = (() => {
    * Actualizar una orden
    * @param {*} id 
    * @param {*} data 
-   * @returns 
+   * @returns {Promise<Object>} Orden actualizada
    */
   const update = async (id, data) => {
     try {

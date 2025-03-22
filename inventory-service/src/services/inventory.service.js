@@ -11,7 +11,7 @@ module.exports = (() => {
 
   /**
    * Inicia el proceso de inventario para una orden
-   * NOTA: Se reciben los dos producer para evitar la dependencia circular
+   * NOTA: Se reciben los dos producer como callback para evitar la dependencia circular
    * @param {String} orderId 
    * @param {Function} marketTopicProducer
    * @param {Function} ingredientsTopicProducer
@@ -51,13 +51,7 @@ module.exports = (() => {
       };
       
       // Se actualiza el inventario de los ingredientes restando la cantidad usada
-      let promisesToUpdateInventory = [];
-      order.dish.ingredients.forEach(ingredient => {
-        promisesToUpdateInventory.push(
-          ingredientService.update(ingredient.name, ingredient.quantity)
-        );
-      });
-      await Promise.all(promisesToUpdateInventory);
+      await ingredientService.update(order.dish.ingredients);
 
       // Se actualiza el estado de la orden a "Finalizada"
       await orderService.update(order._id, { status: orderStatus.FINISHED });
