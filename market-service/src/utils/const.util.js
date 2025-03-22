@@ -3,5 +3,6 @@ module.exports = {
     PREPARATION: 'PREPARATION',
     KITCHEN: 'KITCHEN',
     FINISHED: 'FINISHED',
+    DELIVERED: 'DELIVERED',
   }
 };
