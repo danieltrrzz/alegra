@@ -5,7 +5,7 @@
 module.exports = (() => {
   'use strict';
 
-  const { get, update } = require('./order.service');
+  const orderService = require('./order.service');
   const { orderStatus } = require('../utils/const.util');
 
   /**
@@ -14,7 +14,7 @@ module.exports = (() => {
    */
   const deliveryProcessStart = async (orderId) => {
     try {
-      const ordenResult = await get(orderId);
+      const ordenResult = await orderService.get(orderId);
       if (!ordenResult || ordenResult.status !== orderStatus.FINISHED) {
         console.log(`⚠️ La orden N°${orderId} no fue encontrada o no está en estado "Finalizada"`);
         return;
@@ -23,7 +23,7 @@ module.exports = (() => {
       const order = ordenResult.toObject();
 
       // Se actualiza la orden con el estado de "Entregada"
-      await update(order._id, {
+      await orderService.update(order._id, {
         status: orderStatus.DELIVERED,
       });
 

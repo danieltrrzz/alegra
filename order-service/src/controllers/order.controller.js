@@ -5,6 +5,7 @@
 'use strict';
 
 const orderService = require('../services/order.service');
+const { kitchenTopicProducer } = require('../services/kafka.service');
 const { SECRET_KEY } = require('../config/env');
 
 /**
@@ -54,10 +55,14 @@ const create = async (req, res) => {
 
     const order = await orderService.create();
 
+    // Envío un mensaje al tópico de cocina
+    kitchenTopicProducer({ orderId: order._id })
+
     res.status(200).json(order);
 
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener el orden', error });
+    console.error('Error al crear orden', error);
+    res.status(500).json({ message: 'Error al crear orden', error });
   }
 };
 

@@ -7,7 +7,6 @@ module.exports = (() => {
 
   const OrderModel = require('../models/order.model');
   const { orderStatus } = require('../utils/const.util');
-  const { kitchenTopicProducer } = require('./kafka.service');
 
   /**
     * Obtener una o todas las órdenes
@@ -40,14 +39,12 @@ module.exports = (() => {
         status: orderStatus.PREPARATION
       });
       const result = await order.save();
-      // Envío un mensaje al tópico de cocina
-      kitchenTopicProducer({ orderId: result._id });
 
       return result;
 
     } catch (error) {
-      console.error(`Error al guardar una orden ${orderData}`, error);
-      throw new Error(`Error al guardar una orden ${orderData}`);
+      console.error(`Error al guardar una orden`, error);
+      throw new Error(`Error al guardar una orden`);
     }
   };
 
