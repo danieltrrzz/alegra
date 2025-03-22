@@ -1,2 +1,0 @@
-# alrega
-Free Lunch Day

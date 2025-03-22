@@ -8,7 +8,6 @@ module.exports = (() => {
   const { Kafka } = require('kafkajs');
   const { v4: uuidv4 } = require("uuid");
   const { MAX_LISTENERS ,KAFKA_BROKER, KAFKA_CLIENT_ID, KAFKA_INVENTORY_TOPIC, KAFKA_MARKET_TOPIC, KAFKA_INGREDIENTS_TOPIC } = require('../config/env');
-  const uniqueId = uuidv4();
   const { inventoryProcessStart } = require('./inventory.service');
   // Se establece el número máximo de listeners para evitar warnings
   const EventEmitter = require('events');
@@ -24,11 +23,11 @@ module.exports = (() => {
     reauthenticationThreshold: 5000,
     retry: { retries: 1, maxRetryTime: 1000 },
   });
-  const consumer = kafka.consumer({ groupId: `inventory-${uniqueId}` });
+  const consumer = kafka.consumer({ groupId: `inventory-${uuidv4()}` });
   const producer = kafka.producer();
 
   /**
-   * Producer para enviar mensajes al tópico de mercado
+   * Producer para enviar mensajes al tópico de mercado (Dirigido al servicio de mercado)
    * @param {{ orderId: 'asdas983190' }} order 
    */
   const marketTopicProducer = async (order) => {
@@ -45,7 +44,7 @@ module.exports = (() => {
   };
 
   /**
-   * Producer para enviar mensajes al tópico de ingredientes (Dirigido al servicio de ordenes)
+   * Producer para enviar mensajes al tópico de ingredientes (Dirigido al servicio de cocina)
    * @param {{ orderId: 'asdas983190' }} order 
    */
   const ingredientsTopicProducer = async (order) => {

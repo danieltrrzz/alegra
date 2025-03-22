@@ -7,7 +7,6 @@ module.exports = (() => {
   const { Kafka } = require('kafkajs');
   const { v4: uuidv4 } = require("uuid");
   const { MAX_LISTENERS, KAFKA_BROKER, KAFKA_CLIENT_ID, KAFKA_MARKET_TOPIC, KAFKA_INVENTORY_TOPIC } = require('../config/env');
-  const uniqueId = uuidv4();
   const { marketProcessStart } = require('./market.service');
   // Se establece el número máximo de listeners para evitar warnings
   const EventEmitter = require('events');
@@ -23,7 +22,7 @@ module.exports = (() => {
     reauthenticationThreshold: 5000,
     retry: { retries: 1, maxRetryTime: 1000 },
   });
-  const consumer = kafka.consumer({ groupId: `inventory-${uniqueId}` });
+  const consumer = kafka.consumer({ groupId: `market-${uuidv4()}` });
   const producer = kafka.producer();
 
   /**

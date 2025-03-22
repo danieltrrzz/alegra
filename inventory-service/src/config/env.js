@@ -5,7 +5,7 @@ require('dotenv').config();
  */
 const {
   MONGO_URI = 'mongodb://127.0.0.1:27017/DBFreeLunchDay',
-  PORT = 3004,
+  PORT = 3003,
   NAME_SPACE = '/ms/inventory',
   MAX_LISTENERS = 20,
   KAFKA_BROKER = '127.0.0.1:9092',
