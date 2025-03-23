@@ -13,7 +13,10 @@ const {
   KAFKA_KITCHEN_TOPIC = 'kitchen-topic',
   KAFKA_INVENTORY_TOPIC = 'inventory-topic',
   KAFKA_INGREDIENTS_TOPIC = 'ingredients-topic',
-  KAFKA_ORDER_TOPIC = 'order-topic'
+  KAFKA_ORDER_TOPIC = 'order-topic',
+  KITCHEN_TIME = 10000,
+  SOCKET_HOST = 'http://localhost:3001',
+  SOCKET_URI_EMITTER = '/io/change-event'
 } = process.env;
 
 module.exports = {
@@ -26,5 +29,8 @@ module.exports = {
   KAFKA_KITCHEN_TOPIC,
   KAFKA_INVENTORY_TOPIC,
   KAFKA_INGREDIENTS_TOPIC,
-  KAFKA_ORDER_TOPIC
+  KAFKA_ORDER_TOPIC,
+  KITCHEN_TIME: +KITCHEN_TIME,
+  SOCKET_HOST,
+  SOCKET_URI_EMITTER
 };

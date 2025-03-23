@@ -7,6 +7,7 @@ module.exports = (() => {
 
   const OrderModel = require('../models/order.model');
   const { orderStatus } = require('../utils/const.util');
+  const { socketNotify } = require('./socket.service');
 
   /**
     * Obtener una o todas las órdenes
@@ -39,7 +40,9 @@ module.exports = (() => {
         status: orderStatus.PREPARATION
       });
       const result = await order.save();
-
+      // Notificar cambio
+      socketNotify();
+      
       return result;
 
     } catch (error) {
@@ -61,6 +64,9 @@ module.exports = (() => {
         data,
         { new: true }
       );
+      // Notificar cambio
+      socketNotify();
+
       return result;
     }
     catch (error) {

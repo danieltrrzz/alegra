@@ -10,6 +10,7 @@ module.exports = (() => {
   const marketPlaceService = require('./market-place.service');
   const purchaseHistoryService = require('./purchase-history.service');
   const { orderStatus } = require('../utils/const.util');
+  const { MARKET_TIME } = require('../config/env');
 
   /**
    * Inicia el proceso de inventario para una orden
@@ -53,6 +54,9 @@ module.exports = (() => {
         promisesToBuyIngredients.push(marketPlaceService.purchasingIngredients(ingredient.name));
       });  
       const ingredientsPurchasedResult = await Promise.all(promisesToBuyIngredients);
+
+      // Se simula el tiempo de compra de los ingredientes
+      await new Promise(resolve => setTimeout(resolve, MARKET_TIME));
 
       // Se actualiza el inventario de los ingredientes comprados       
       await ingredientService.update(ingredientsPurchasedResult);

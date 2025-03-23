@@ -12,6 +12,7 @@ const {
   KAFKA_CLIENT_ID ='market-service',
   KAFKA_MARKET_TOPIC = 'market-topic',
   KAFKA_INVENTORY_TOPIC = 'inventory-topic',
+  MARKET_TIME = 10000,
   MARKET_PLACE_URI = 'https://recruitment.alegra.com/api/farmers-market/buy'
 } = process.env;
 
@@ -24,5 +25,6 @@ module.exports = {
   KAFKA_CLIENT_ID,
   KAFKA_MARKET_TOPIC,
   KAFKA_INVENTORY_TOPIC,
+  MARKET_TIME: +MARKET_TIME,
   MARKET_PLACE_URI
 };

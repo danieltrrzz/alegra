@@ -8,6 +8,7 @@ module.exports = (() => {
   const orderService = require('./order.service');
   const dishService = require('./dish.service');
   const { orderStatus } = require('../utils/const.util');
+  const { KITCHEN_TIME } = require('../config/env');
 
   /**
    * Inicia el proceso de preparación de un plato aleatorio para una orden específica.
@@ -59,8 +60,8 @@ module.exports = (() => {
       // Se obtiene la orden en formato de objeto para mejor manipulación
       const order = ordenResult.toObject();
 
-      // Se simula el tiempo de preparación del plato (10 segundos)
-      await new Promise(resolve => setTimeout(resolve, 10000));
+      // Se simula el tiempo de preparación del plato
+      await new Promise(resolve => setTimeout(resolve, KITCHEN_TIME));
 
       // Se notifica al servicio de ordenes que la orden está lista
       await orderTopicProducer({ orderId: order._id });

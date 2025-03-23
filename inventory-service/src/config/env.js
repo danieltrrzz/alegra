@@ -12,7 +12,9 @@ const {
   KAFKA_CLIENT_ID ='inventory-service',
   KAFKA_INVENTORY_TOPIC = 'inventory-topic',
   KAFKA_MARKET_TOPIC = 'market-topic',
-  KAFKA_INGREDIENTS_TOPIC = 'ingredients-topic'
+  KAFKA_INGREDIENTS_TOPIC = 'ingredients-topic',
+  SOCKET_HOST = 'http://localhost:3001',
+  SOCKET_URI_EMITTER = '/io/change-event'
 } = process.env;
 
 module.exports = {
@@ -24,5 +26,7 @@ module.exports = {
   KAFKA_CLIENT_ID,
   KAFKA_INVENTORY_TOPIC,
   KAFKA_MARKET_TOPIC,
-  KAFKA_INGREDIENTS_TOPIC
+  KAFKA_INGREDIENTS_TOPIC,
+  SOCKET_HOST,
+  SOCKET_URI_EMITTER
 };

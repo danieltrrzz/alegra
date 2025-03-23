@@ -6,6 +6,7 @@ module.exports = (() => {
   'use strict';
 
   const OrderModel = require('../models/order.model');
+  const { socketNotify } = require('./socket.service');
 
   /**
    * Obtener una orden por su id
@@ -35,7 +36,10 @@ module.exports = (() => {
         id, 
         data, 
         { new: true }
-      );    
+      );   
+      // Notificar cambio
+      socketNotify();
+       
       return result;
     }
     catch (error) {

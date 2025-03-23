@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const http = require('http');
 const cors = require('cors');
 const { connectDB } = require('./config/database');
 const { PORT: port, NAME_SPACE: nameSpace } = require('./config/env');
 const { orderTopicConsumer } = require('./services/kafka.service');
+const { initSocketServer } = require('./services/socket.service');
 
 // Conectar a la base de datos
 connectDB();
@@ -19,6 +21,10 @@ orderTopicConsumer();
 // Rutas
 app.use(nameSpace, require('./routes/order.routes'));
 
-app.listen(port, () => {
-  console.log(`🚀 Servicio de mercado corriendo en el puerto ${port}`);
+// Iniciar el servidor
+const server = http.createServer(app).listen(port, () => {
+  console.log(`🚀 Servicio de ordenes corriendo en el puerto ${port}`);
 });
+
+// Inicializar el servidor de sockets
+initSocketServer(server);
