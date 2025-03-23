@@ -1,389 +1,46 @@
 <mxfile host="65bd71144e">
     <diagram id="7wUOio2GqqiPy2TDtg6h" name="Page-1">
-        <mxGraphModel dx="948" dy="938" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3996" dy="4384" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="45" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Solicitar Orden&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="870" y="190" width="120" height="40" as="geometry"/>
+                <mxCell id="156" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="2000" y="1390" width="1930" height="400" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="45" target="51" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1130" y="260" as="sourcePoint"/>
-                        <mxPoint x="1070" y="190" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="62" value="REST - POST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="46" vertex="1" connectable="0">
-                    <mxGeometry x="-0.078" y="-1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="50" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="1070" y="40" width="450" height="240" as="geometry"/>
-                </mxCell>
-                <mxCell id="51" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Crea la orden en la base de datos con el estado &quot;Preparación&quot;.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="50" vertex="1">
-                    <mxGeometry x="40" y="140" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="52" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de Cocina el Id de la orden&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="50" vertex="1">
-                    <mxGeometry x="250" y="140" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="53" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="50" source="51" target="52" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="250" y="230" as="sourcePoint"/>
-                        <mxPoint x="300" y="180" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="56" value="&lt;span style=&quot;text-align: left;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves&amp;nbsp;de un consumer, recibo todas las ordenes finalizadas&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="50" vertex="1">
-                    <mxGeometry x="250" y="40" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="57" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Envio señal al front para que actualice el tablero de estados&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="50" vertex="1">
-                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="58" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="50" source="56" target="57" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="240" y="140" as="sourcePoint"/>
-                        <mxPoint x="290" y="90" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="63" value="order-service" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="50" vertex="1">
-                    <mxGeometry x="360" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="55" value="FrontEnd" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="870" y="20" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="59" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" source="57" target="55" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1310" y="180" as="sourcePoint"/>
-                        <mxPoint x="1360" y="130" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="930" y="110"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="60" value="Socket Io" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="59" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1344" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="72" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="1560" y="280" width="990" height="320" as="geometry"/>
-                </mxCell>
-                <mxCell id="76" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;Preparación&quot;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="72" vertex="1">
-                    <mxGeometry x="250" y="180" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="77" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer, recibo todas las ordenes (Solo el Id)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="40" y="180" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="79" value="kitchen-service" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="890" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="75" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="72" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="199.99999999999977" y="209.66" as="sourcePoint"/>
-                        <mxPoint x="249.99999999999977" y="209.66" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="82" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="440" y="190" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="83" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="72" source="76" target="82" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="220" as="sourcePoint"/>
-                        <mxPoint x="390" y="170" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="85" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="72" vertex="1">
-                    <mxGeometry x="445" y="270" width="30" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="86" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="72" source="82" target="85" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="220" as="sourcePoint"/>
-                        <mxPoint x="460" y="280" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="87" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="86" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="88" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Selecciono aleatoriamente un plato, lo agrego a la orden, cambio el estado a &quot;Cocina&quot; y la actualizo en la base de datos&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="72" vertex="1">
-                    <mxGeometry x="520" y="180" width="190" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="89" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="72" source="82" target="88" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="430" y="310" as="sourcePoint"/>
-                        <mxPoint x="480" y="260" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="90" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="89" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="92" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de Inventario el Id de la orden (Esto para solicitar los ingredientes)&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="72" vertex="1">
-                    <mxGeometry x="760" y="180" width="190" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="93" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="72" source="88" target="92" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="670" y="310" as="sourcePoint"/>
-                        <mxPoint x="720" y="260" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="94" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer recibo todas las ordenes (Solo el Id) con los ingredientes listos para su preparación&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="750" y="80" width="200" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="204" value="" style="edgeStyle=none;html=1;" parent="72" source="95" target="97" edge="1">
+                <mxCell id="481" style="edgeStyle=none;html=1;" edge="1" parent="156" source="159" target="156">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Se finaliza la preparación del plato&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="72" vertex="1">
-                    <mxGeometry x="300" y="80" width="130" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="97" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de ordenes el id de la orden finalizada&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="72" vertex="1">
-                    <mxGeometry x="50" y="80" width="190" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="98" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="72" source="95" target="97" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="320" y="110" as="sourcePoint"/>
-                        <mxPoint x="350" y="109.66000000000003" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="205" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;finalizada&lt;/span&gt;&quot;&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="580" y="80" width="130" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="206" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="72" vertex="1">
-                    <mxGeometry x="500" y="90" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="208" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="72" vertex="1">
-                    <mxGeometry x="505" y="10" width="30" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="209" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="72" source="206" target="208" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="540" y="90" as="sourcePoint"/>
-                        <mxPoint x="540" y="180" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="210" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="209" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="213" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="72" source="206" target="95" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="490" y="220" as="sourcePoint"/>
-                        <mxPoint x="530" y="220" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="214" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="213" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="215" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="72" source="205" target="206" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="490" y="180" as="sourcePoint"/>
-                        <mxPoint x="540" y="130" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="216" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="72" source="94" target="205" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="490" y="180" as="sourcePoint"/>
-                        <mxPoint x="540" y="130" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="80" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="1" source="52" target="77" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1560" y="340" as="sourcePoint"/>
-                        <mxPoint x="1610" y="290" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="1400" y="490"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="81" value="Topico: kitchen-topic" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="80" vertex="1" connectable="0">
-                    <mxGeometry x="0.0805" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="99" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#60a917;strokeColor=#2D7600;exitX=0.474;exitY=-0.048;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="97" target="56" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1700" y="360" as="sourcePoint"/>
-                        <mxPoint x="1830" y="250" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="1700" y="250"/>
-                            <mxPoint x="1700" y="110"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="100" value="Tipico: order-topic" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="99" vertex="1" connectable="0">
-                    <mxGeometry x="-0.086" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="121" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="1560" y="680" width="1200" height="280" as="geometry"/>
-                </mxCell>
-                <mxCell id="122" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;Cocina&quot;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="121" vertex="1">
-                    <mxGeometry x="250" y="40" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="123" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer, recibo todas las ordenes (Solo el Id)&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="121" vertex="1">
-                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="124" value="inventory-service" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="121" vertex="1">
-                    <mxGeometry x="1090" width="110" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="125" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="121" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="199.99999999999977" y="69.66" as="sourcePoint"/>
-                        <mxPoint x="249.99999999999977" y="69.66" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="126" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="121" vertex="1">
-                    <mxGeometry x="440" y="50" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="127" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="121" source="122" target="126" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="80" as="sourcePoint"/>
-                        <mxPoint x="390" y="30" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="128" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="121" vertex="1">
-                    <mxGeometry x="445" y="140" width="30" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="129" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="121" source="126" target="128" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="80" as="sourcePoint"/>
-                        <mxPoint x="390" y="30" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="130" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="129" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="131" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Verifico si todos los ingredientes de la orden están disponibles&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="121" vertex="1">
-                    <mxGeometry x="520" y="40" width="140" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="132" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="121" source="126" target="131" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="430" y="170" as="sourcePoint"/>
-                        <mxPoint x="480" y="120" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="133" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="132" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="135" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="121" source="131" target="141" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="670" y="170" as="sourcePoint"/>
-                        <mxPoint x="760" y="69.99999999999977" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="141" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="121" vertex="1">
-                    <mxGeometry x="690" y="50" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="143" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="121" source="141" target="154" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="590" y="80" as="sourcePoint"/>
-                        <mxPoint x="710" y="139.99999999999977" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="144" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="143" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="145" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="121" source="141" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="680" y="170" as="sourcePoint"/>
-                        <mxPoint x="770" y="70" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="146" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="145" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="147" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Reduzco el stock de los ingredientes asociados que se va preparar&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="121" vertex="1">
-                    <mxGeometry x="770" y="40" width="140" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="148" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de cocina el Id de la orden (Aca se realiza el &quot;envio de los ingredientes&quot;)&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="121" vertex="1">
-                    <mxGeometry x="960" y="40" width="200" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="149" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="121" source="147" target="148" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1080" y="-10" as="sourcePoint"/>
-                        <mxPoint x="1130" y="-60" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="154" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Usando Kafka atreves de un producer envio al servicio de mercado el Id de la orden (Esto para solicitar los ingredientes que hacen falta comprar)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="121" vertex="1">
-                    <mxGeometry x="620" y="160" width="180" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="150" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="148" target="94" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2580" y="620" as="sourcePoint"/>
-                        <mxPoint x="2630" y="570" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="2620" y="390"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="151" value="Topico: ingredients-topic" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="150" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1962" y="-3" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="152" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="1" source="92" target="123" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2431.6499999999996" y="550" as="sourcePoint"/>
-                        <mxPoint x="2180" y="676.46" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="2415" y="640"/>
-                            <mxPoint x="2040" y="640"/>
-                            <mxPoint x="1680" y="640"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="153" value="Topico: inventory-topic" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="152" vertex="1" connectable="0">
-                    <mxGeometry x="-0.0344" y="1" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="156" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="1560" y="1040" width="1200" height="200" as="geometry"/>
+                <mxCell id="159" value="market-service" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" parent="156" vertex="1">
+                    <mxGeometry x="1830" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="157" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;Cocina&quot;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="156" vertex="1">
-                    <mxGeometry x="250" y="40" width="160" height="60" as="geometry"/>
+                    <mxGeometry x="480" y="140" width="160" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="158" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer, recibo todas las ordenes (Solo el Id)&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                    <mxGeometry x="280" y="140" width="160" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" value="market-service" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="1110" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="160" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" edge="1">
+                <mxCell id="160" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="158" target="157" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="199.99999999999977" y="69.66" as="sourcePoint"/>
-                        <mxPoint x="249.99999999999977" y="69.66" as="targetPoint"/>
+                        <mxPoint x="439.9999999999998" y="189.65999999999997" as="sourcePoint"/>
+                        <mxPoint x="489.9999999999998" y="189.65999999999997" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="161" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="440" y="50" width="40" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="150" width="40" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="162" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="156" source="157" target="161" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="80" as="sourcePoint"/>
-                        <mxPoint x="390" y="30" as="targetPoint"/>
+                        <mxPoint x="580" y="200" as="sourcePoint"/>
+                        <mxPoint x="630" y="150" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="163" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="156" vertex="1">
-                    <mxGeometry x="445" y="140" width="30" height="30" as="geometry"/>
+                    <mxGeometry x="685" y="230" width="30" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="164" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="156" source="161" target="163" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="340" y="80" as="sourcePoint"/>
-                        <mxPoint x="390" y="30" as="targetPoint"/>
+                        <mxPoint x="580" y="200" as="sourcePoint"/>
+                        <mxPoint x="630" y="150" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="165" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="164" vertex="1" connectable="0">
@@ -391,10 +48,10 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="167" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="161" edge="1">
+                <mxCell id="167" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="161" target="179" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="430" y="170" as="sourcePoint"/>
-                        <mxPoint x="520" y="70" as="targetPoint"/>
+                        <mxPoint x="670" y="290" as="sourcePoint"/>
+                        <mxPoint x="760" y="190" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="168" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="167" vertex="1" connectable="0">
@@ -403,36 +60,47 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="179" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Realizo la compra de cada uno de los ingredientes de la orden&amp;nbsp; que NO tienen el stock&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;suficiente&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp;en la plaza de mercado&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="520" y="40" width="195" height="60" as="geometry"/>
+                    <mxGeometry x="757.5" y="140" width="195" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="188" value="Actualizo el stock de cada uno de los ingredientes" style="rounded=1;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="740" y="40" width="120" height="60" as="geometry"/>
+                <mxCell id="188" value="Actualizo el stock de cada uno de los ingredientes comprados" style="rounded=1;whiteSpace=wrap;html=1;" parent="156" vertex="1">
+                    <mxGeometry x="1200" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="478" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="156" source="196" target="477" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="479" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="478" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1222" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="196" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de Inventario el Id de la orden&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="156" vertex="1">
-                    <mxGeometry x="1020" y="40" width="160" height="60" as="geometry"/>
+                    <mxGeometry x="1500" y="140" width="160" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="217" value="Guardo el historial de la compra" style="rounded=1;whiteSpace=wrap;html=1;" parent="156" vertex="1">
-                    <mxGeometry x="900" y="40" width="80" height="60" as="geometry"/>
+                    <mxGeometry x="1360" y="140" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="218" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="188" target="217" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="800" y="130" as="sourcePoint"/>
-                        <mxPoint x="850" y="80" as="targetPoint"/>
+                        <mxPoint x="1250" y="250" as="sourcePoint"/>
+                        <mxPoint x="1300" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="219" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="217" target="196" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="800" y="130" as="sourcePoint"/>
-                        <mxPoint x="850" y="80" as="targetPoint"/>
+                        <mxPoint x="1250" y="250" as="sourcePoint"/>
+                        <mxPoint x="1300" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="185" value="Plaza de mercado&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2125" y="1320" width="100" height="60" as="geometry"/>
+                <mxCell id="185" value="Plaza de mercado&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="156" vertex="1">
+                    <mxGeometry x="920" y="300" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="186" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="179" target="185" edge="1">
+                <mxCell id="186" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="156" source="179" target="185" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2300" y="1290" as="sourcePoint"/>
-                        <mxPoint x="2350" y="1240" as="targetPoint"/>
+                        <mxPoint x="980" y="370" as="sourcePoint"/>
+                        <mxPoint x="1030" y="320" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="855" y="330"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="187" value="REST - GET" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="186" vertex="1" connectable="0">
@@ -440,44 +108,858 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="189" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="185" target="188" edge="1">
+                <mxCell id="189" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="156" source="185" target="472" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2100" y="1200" as="sourcePoint"/>
-                        <mxPoint x="2390" y="1140" as="targetPoint"/>
+                        <mxPoint x="780" y="280" as="sourcePoint"/>
+                        <mxPoint x="1070" y="220" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="2360" y="1350"/>
+                            <mxPoint x="1075" y="330"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="200" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="1" source="154" target="158" edge="1">
+                <mxCell id="463" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;REST - GET&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;/ms/market&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="156" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="464" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto el historial de compras&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="156" vertex="1">
+                    <mxGeometry x="240" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="465" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="156" vertex="1">
+                    <mxGeometry x="400" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="466" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="156" source="464" target="465" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2120" y="1020" as="sourcePoint"/>
-                        <mxPoint x="2170" y="970" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="2270" y="1000"/>
-                            <mxPoint x="1970" y="1000"/>
-                            <mxPoint x="1680" y="1000"/>
-                        </Array>
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="201" value="Topico: market-topic" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="200" vertex="1" connectable="0">
-                    <mxGeometry x="-0.0208" relative="1" as="geometry">
+                <mxCell id="467" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="463" target="464" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="469" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;exitX=0.989;exitY=0.509;exitDx=0;exitDy=0;exitPerimeter=0;" parent="156" source="480" target="158" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="170" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="471" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="469" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1101" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="202" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" parent="1" source="196" target="123" edge="1">
+                <mxCell id="473" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="156" source="472" target="188" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="472" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Se simula el tiempo de compra de los ingredientes (&lt;b&gt;El tiempo de compra es configurable&lt;/b&gt;)&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="156" vertex="1">
+                    <mxGeometry x="990" y="140" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="474" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="156" vertex="1">
+                    <mxGeometry x="1310" y="250" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="475" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;" parent="156" source="188" target="474" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2120" y="1140" as="sourcePoint"/>
-                        <mxPoint x="2170" y="1090" as="targetPoint"/>
+                        <mxPoint x="1260" y="210" as="sourcePoint"/>
+                        <mxPoint x="1070" y="180" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="2660" y="1400"/>
-                            <mxPoint x="1520" y="1400"/>
-                            <mxPoint x="1520" y="750"/>
+                            <mxPoint x="1260" y="280"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="203" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Topico: inventory-topic&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="202" vertex="1" connectable="0">
-                    <mxGeometry x="0.2256" y="-3" relative="1" as="geometry">
+                <mxCell id="476" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;" parent="156" source="217" target="474" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1210" y="170" as="sourcePoint"/>
+                        <mxPoint x="1260" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1410" y="280"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="477" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;inventory-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="156" vertex="1">
+                    <mxGeometry x="1730" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="480" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent;&quot;&gt;market-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="156" vertex="1">
+                    <mxGeometry x="40" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="2585" y="-970" width="840" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="227" value="&lt;b&gt;FrontEnd&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="780" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="228" value="Consulta y lista los platos de comida" style="rounded=1;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="40" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="229" value="Consulta las ordenes y las organiza según su estado" style="rounded=1;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="200" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="230" value="Consulta y lista los ingredientes y su stock en inventario&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="360" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="231" value="Consulta y lista las compras de ingredientes" style="rounded=1;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="520" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="251" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="220" target="228" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="100" y="40" as="sourcePoint"/>
+                        <mxPoint x="420" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="252" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="220" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="259.6300000000001" y="40" as="sourcePoint"/>
+                        <mxPoint x="259.6300000000001" y="80" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="253" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="220" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="419.6300000000001" y="40" as="sourcePoint"/>
+                        <mxPoint x="419.6300000000001" y="80" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="264" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Ordena un plato de comida&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="220" vertex="1">
+                    <mxGeometry x="680" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="238" value="" style="swimlane;startSize=0;fillColor=#fff2cc;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="2765" y="-670" width="480" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="&lt;b&gt;GateWay&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="238" vertex="1">
+                    <mxGeometry x="420" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="244" value="Socket - Escucha los cambios de esatdo de las ordenes y notifica al frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="238" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="254" value="Servidor - Solicitudes REST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="238" vertex="1">
+                    <mxGeometry x="280" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="247" value="" style="endArrow=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" source="244" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2955" y="-680" as="sourcePoint"/>
+                        <mxPoint x="2505" y="-930" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2505" y="-600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="250" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Socket Io&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="247" vertex="1" connectable="0">
+                    <mxGeometry x="0.2699" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="249" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" target="231" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2505" y="-930" as="sourcePoint"/>
+                        <mxPoint x="3005" y="-730" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="3165" y="-930"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="255" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="228" target="254" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3045" y="-650" as="sourcePoint"/>
+                        <mxPoint x="3095" y="-700" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2685" y="-740"/>
+                            <mxPoint x="2855" y="-740"/>
+                            <mxPoint x="3005" y="-740"/>
+                            <mxPoint x="3005" y="-690"/>
+                            <mxPoint x="3005" y="-600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="259" value="GET" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="255" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2468" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="256" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.126;entryY=-0.008;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="229" target="254" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3045" y="-650" as="sourcePoint"/>
+                        <mxPoint x="3065" y="-630" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2845" y="-770"/>
+                            <mxPoint x="2925" y="-770"/>
+                            <mxPoint x="3065" y="-770"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="260" value="GET" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="256" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2927" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="258" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="231" target="254" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3045" y="-650" as="sourcePoint"/>
+                        <mxPoint x="3095" y="-700" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="3165" y="-790"/>
+                            <mxPoint x="3165" y="-720"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="262" value="GET" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="258" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3684" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="265" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="264" target="254" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3045" y="-650" as="sourcePoint"/>
+                        <mxPoint x="3095" y="-700" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="3325" y="-600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="266" value="POST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="265" vertex="1" connectable="0">
+                    <mxGeometry x="-0.437" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="257" value="" style="endArrow=classic;html=1;exitX=0.667;exitY=1.019;exitDx=0;exitDy=0;entryX=0.379;entryY=-0.008;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="230" target="254" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3025" y="-825.7400000000001" as="sourcePoint"/>
+                        <mxPoint x="3025.16" y="-630" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="3025" y="-790"/>
+                            <mxPoint x="3105" y="-790"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="261" value="GET" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="257" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2043" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="267" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="2000" y="-290" width="1080" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="272" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;REST - GET&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;/ms/order&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="267" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="274" value="&lt;b&gt;order-service&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="990" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="295" value="REST - POST&lt;div&gt;/ms/order&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="267" vertex="1">
+                    <mxGeometry x="40" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="298" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto que la solicitud tenga la clave secreta&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="267" vertex="1">
+                    <mxGeometry x="200" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="299" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="360" y="150" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="300" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="267" source="298" target="299" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="250" y="180" as="sourcePoint"/>
+                        <mxPoint x="300" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="301" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="267" vertex="1">
+                    <mxGeometry x="365" y="230" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="302" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="267" source="299" target="301" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="260" y="180" as="sourcePoint"/>
+                        <mxPoint x="380" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="303" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="302" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="304" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="299" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="350" y="270" as="sourcePoint"/>
+                        <mxPoint x="440" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="305" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="304" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="306" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="295" target="298" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="460" y="220" as="sourcePoint"/>
+                        <mxPoint x="510" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="308" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Se crea la orden en la base de datos con el estado &quot;Preparación&quot;.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="440" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="343" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="309" target="314" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="309" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="267" vertex="1">
+                    <mxGeometry x="495" y="245" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="310" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="267" source="308" target="309" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="311" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de Cocina el Id de la orden&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="267" vertex="1">
+                    <mxGeometry x="640" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="312" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;REST - POST&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Codigo: 200&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Data: Orden&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" parent="267" vertex="1">
+                    <mxGeometry x="640" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="314" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Atraves de Sokcet se notifica el cambio en ordenes&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="267" vertex="1">
+                    <mxGeometry x="40" y="240" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="319" value="" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="267" source="308" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="620" y="260" as="sourcePoint"/>
+                        <mxPoint x="720" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="322" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.503;entryY=1.053;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="267" source="311" target="312" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="650" y="230" as="sourcePoint"/>
+                        <mxPoint x="700" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="325" value="&lt;span style=&quot;text-align: left;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves&amp;nbsp;de un consumer, recibo todas las ordenes &quot;finalizadas&quot;&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="640" y="340" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="340" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="326" target="338" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="341" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="340" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2616" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="326" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="400" y="350" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="327" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="267" vertex="1">
+                    <mxGeometry x="405" y="430" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="328" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="267" source="326" target="327" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="380" as="sourcePoint"/>
+                        <mxPoint x="420" y="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="329" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="328" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="335" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="333" target="326" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="333" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;finalizada&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="470" y="340" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="334" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="325" target="333" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="770" y="330" as="sourcePoint"/>
+                        <mxPoint x="820" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="338" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Se actualiza la orden en la base de datos con el estado &quot;Entregada&quot;.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="267" vertex="1">
+                    <mxGeometry x="205" y="340" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="342" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="267" source="338" target="309" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="390" as="sourcePoint"/>
+                        <mxPoint x="560" y="340" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="285" y="320"/>
+                            <mxPoint x="520" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="282" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Topico: kitchen-topic&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="267" vertex="1">
+                    <mxGeometry x="880" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="267" source="311" target="282" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="750" y="260" as="sourcePoint"/>
+                        <mxPoint x="800" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="324" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="323" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0224" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="278" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: order-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="267" vertex="1">
+                    <mxGeometry x="880" y="340" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="336" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="267" source="278" target="325" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="720" y="180" as="sourcePoint"/>
+                        <mxPoint x="770" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="337" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="336" vertex="1" connectable="0">
+                    <mxGeometry x="0.0222" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="425" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto las ordenes&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="267" vertex="1">
+                    <mxGeometry x="240" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="426" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="267" vertex="1">
+                    <mxGeometry x="400" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="428" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="267" source="425" target="426" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="430" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="267" source="272" target="425" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="277" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="3660" y="-200" width="240" height="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="284" value="&lt;b&gt;Kafka Broker&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="277" vertex="1">
+                    <mxGeometry x="150" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="376" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: kitchen-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="277" vertex="1">
+                    <mxGeometry x="40" y="30" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="377" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: order-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="277" vertex="1">
+                    <mxGeometry x="40" y="130" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="378" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;inventory-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="277" vertex="1">
+                    <mxGeometry x="40" y="230" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="286" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent;&quot;&gt;market-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="277" vertex="1">
+                    <mxGeometry x="40" y="330" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="287" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: ingredients-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f8cecc;strokeColor=#b85450;" parent="277" vertex="1">
+                    <mxGeometry x="40" y="430" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="344" value="" style="swimlane;startSize=0;fillColor=#f8cecc;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2000" y="230" width="1480" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;Preparación&quot;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="480" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="346" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer, recibo todas las ordenes (Solo el Id)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="280" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="347" value="&lt;b&gt;kitchen-service&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="1380" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="349" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="680" y="150" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="350" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="344" source="345" target="349" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="610" y="180" as="sourcePoint"/>
+                        <mxPoint x="660" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="351" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="344" vertex="1">
+                    <mxGeometry x="685" y="230" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="352" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="344" source="349" target="351" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="580" y="180" as="sourcePoint"/>
+                        <mxPoint x="700" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="353" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="352" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="354" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Selecciono aleatoriamente un plato, lo agrego a la orden, cambio el estado a &quot;Cocina&quot; y la actualizo en la base de datos&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="760" y="140" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="355" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="349" target="354" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="670" y="270" as="sourcePoint"/>
+                        <mxPoint x="720" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="356" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="355" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="357" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de Inventario el Id de la orden (Esto para solicitar los ingredientes)&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="1000" y="140" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="358" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="354" target="357" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="270" as="sourcePoint"/>
+                        <mxPoint x="960" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="359" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer recibo todas las ordenes (Solo el Id) con los ingredientes listos para su preparación&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="1000" y="360" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" value="" style="edgeStyle=none;html=1;" parent="344" source="361" target="362" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="361" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Se finaliza la preparación del plato (&lt;b&gt;El tiempo de preparación es configurable&lt;/b&gt;)&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="540" y="360" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="362" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de ordenes el id de la orden finalizada&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="310" y="360" width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="363" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="344" source="361" target="362" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="580" y="390" as="sourcePoint"/>
+                        <mxPoint x="610" y="389.66" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="364" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;finalizada&lt;/span&gt;&quot;&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="830" y="360" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="365" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="344" vertex="1">
+                    <mxGeometry x="760" y="370" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="369" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="365" target="361" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="750" y="500" as="sourcePoint"/>
+                        <mxPoint x="790" y="500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="370" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="369" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="371" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="364" target="365" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="500" as="sourcePoint"/>
+                        <mxPoint x="540" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="372" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="359" target="364" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="520" as="sourcePoint"/>
+                        <mxPoint x="540" y="470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="379" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: kitchen-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="344" vertex="1">
+                    <mxGeometry x="40" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="380" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="344" source="379" target="346" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="230" y="240" as="sourcePoint"/>
+                        <mxPoint x="310" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="381" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="380" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0224" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="382" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="346" target="345" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="70" as="sourcePoint"/>
+                        <mxPoint x="540" y="20" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="394" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=30;exitPerimeter=0;" parent="344" source="383" target="393" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="383" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="344" vertex="1">
+                    <mxGeometry x="835" y="260" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="384" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="344" source="354" target="383" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="386" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;inventory-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="344" vertex="1">
+                    <mxGeometry x="1280" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="387" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="344" source="357" target="386" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1190" y="170" as="sourcePoint"/>
+                        <mxPoint x="1240" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="388" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="387" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0572" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="391" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="344" source="389" target="359" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="392" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="391" vertex="1" connectable="0">
+                    <mxGeometry x="0.0405" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="389" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: ingredients-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f8cecc;strokeColor=#b85450;" parent="344" vertex="1">
+                    <mxGeometry x="1280" y="360" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="393" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Atraves de Sokcet se notifica el cambio en ordenes&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="344" vertex="1">
+                    <mxGeometry x="1000" y="260" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="395" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="344" vertex="1">
+                    <mxGeometry x="765" y="450" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="396" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="344" source="365" target="395" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="780" y="460" as="sourcePoint"/>
+                        <mxPoint x="780" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="397" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="396" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="399" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: order-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="344" vertex="1">
+                    <mxGeometry x="80" y="360" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="400" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="344" source="362" target="399" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="280" y="330" as="sourcePoint"/>
+                        <mxPoint x="200" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="401" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="400" vertex="1" connectable="0">
+                    <mxGeometry x="0.0222" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="431" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;REST - GET&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;/ms/kitchen&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="344" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="432" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto los platos de comida&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="344" vertex="1">
+                    <mxGeometry x="240" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="433" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="344" vertex="1">
+                    <mxGeometry x="400" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="434" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="344" source="432" target="433" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="435" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="344" source="431" target="432" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="402" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="2000" y="790" width="1900" height="540" as="geometry"/>
+                </mxCell>
+                <mxCell id="403" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto la orden y verifico que su estado sea igual a &quot;Cocina&quot;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="402" vertex="1">
+                    <mxGeometry x="480" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="404" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Usando Kafka atreves de un consumer, recibo todas las ordenes (Solo el Id)&amp;nbsp;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="280" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="405" value="&lt;b&gt;inventory-service&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="1790" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="406" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="404" target="403" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="469.9999999999998" y="179.66" as="sourcePoint"/>
+                        <mxPoint x="519.9999999999998" y="179.66" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="407" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="680" y="150" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="408" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="402" source="403" target="407" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="610" y="190" as="sourcePoint"/>
+                        <mxPoint x="660" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="409" value="FIN" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontColor=#FFFFFF;gradientColor=none;fillColor=#000000;" parent="402" vertex="1">
+                    <mxGeometry x="685" y="230" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="410" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="402" source="407" target="409" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="610" y="190" as="sourcePoint"/>
+                        <mxPoint x="660" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="411" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="410" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="412" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font&gt;Verifico si todos los ingredientes de la orden tienen el stock suficiente para la &lt;/font&gt;&lt;font&gt;preparación&amp;nbsp;&lt;/font&gt;&lt;font&gt;del plato&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="402" vertex="1">
+                    <mxGeometry x="760" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="413" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="407" target="412" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="700" y="280" as="sourcePoint"/>
+                        <mxPoint x="750" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="414" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="413" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="415" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="412" target="416" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="940" y="280" as="sourcePoint"/>
+                        <mxPoint x="1030" y="179.99999999999977" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="416" value="" style="rhombus;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="960" y="150" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="417" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="402" source="416" target="424" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="860" y="190" as="sourcePoint"/>
+                        <mxPoint x="980" y="249.99999999999977" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="418" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="417" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1172" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="419" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="416" target="421" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="950" y="280" as="sourcePoint"/>
+                        <mxPoint x="1040" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="420" value="SI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="419" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1397" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="421" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Reduzco el stock de los ingredientes asociados que se va preparar&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="402" vertex="1">
+                    <mxGeometry x="1040" y="140" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="461" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" parent="402" source="424" target="459" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="462" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="461" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0601" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="424" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Usando Kafka atreves de un producer envio al servicio de mercado el Id de la orden (Esto para solicitar los ingredientes que hacen falta comprar)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="890" y="270" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="436" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;REST - GET&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;/ms/inventory&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="402" vertex="1">
+                    <mxGeometry x="40" y="40" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="437" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Consulto los ingredientes&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="402" vertex="1">
+                    <mxGeometry x="240" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="438" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="402" vertex="1">
+                    <mxGeometry x="400" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="439" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="402" source="437" target="438" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="440" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="436" target="437" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="80" as="sourcePoint"/>
+                        <mxPoint x="460" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="442" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="402" source="441" target="404" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="443" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="442" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0091" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="441" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;inventory-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="402" vertex="1">
+                    <mxGeometry x="40" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="445" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=30;exitPerimeter=0;" parent="402" source="446" target="448" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="446" value="Mongo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="402" vertex="1">
+                    <mxGeometry x="1275" y="240" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="448" value="&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Atraves de Sokcet se notifica el cambio en ordenes&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="402" vertex="1">
+                    <mxGeometry x="1360" y="240" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="451" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Se actualiza la orden en la base de datos con el estado &quot;Finalizada&quot;.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="402" vertex="1">
+                    <mxGeometry x="1220" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="452" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="421" target="451" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1060" y="220" as="sourcePoint"/>
+                        <mxPoint x="1110" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="453" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="402" source="451" target="446" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1060" y="220" as="sourcePoint"/>
+                        <mxPoint x="1110" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="422" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Usando Kafka atreves de un producer envio al servicio de cocina el Id de la orden (Aca se realiza el &quot;envio de los ingredientes&quot;)&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="402" vertex="1">
+                    <mxGeometry x="1420" y="140" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="455" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico: ingredients-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f8cecc;strokeColor=#b85450;" parent="402" vertex="1">
+                    <mxGeometry x="1700" y="140" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="456" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="402" source="451" target="422" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1530" y="150" as="sourcePoint"/>
+                        <mxPoint x="1580" y="100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="457" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="402" source="422" target="455" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1530" y="150" as="sourcePoint"/>
+                        <mxPoint x="1580" y="100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="458" value="Kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="457" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0377" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="459" value="&lt;span style=&quot;color: rgb(0, 0, 0); text-align: left;&quot;&gt;Topico:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent;&quot;&gt;market-topic&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontSize=15;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="402" vertex="1">
+                    <mxGeometry x="900" y="440" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="482" value="" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fontColor=default;fillColor=none;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="1960" y="-330" width="2030" height="2160" as="geometry"/>
+                </mxCell>
+                <mxCell id="484" value="" style="endArrow=classic;html=1;exitX=0.455;exitY=0.001;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontStyle=1;strokeWidth=3;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="482" target="244">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2870" y="-450" as="sourcePoint"/>
+                        <mxPoint x="2920" y="-500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="485" value="Socket Io" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="484">
+                    <mxGeometry x="-0.0851" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="486" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.523;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" target="254">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3130" y="-330" as="sourcePoint"/>
+                        <mxPoint x="2950" y="-490" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="487" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="486">
+                    <mxGeometry x="-0.0665" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
