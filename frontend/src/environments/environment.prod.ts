@@ -1,5 +1,5 @@
 export const environment = {
   PRODUCTION: true,
-  API_BASE: "http://api-gateway:3000",
-  SOCKET_BASE: "http://api-gateway:3001"
+  API_BASE: "http://localhost:3000",
+  SOCKET_BASE: "http://localhost:3001"
 };

@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    image: api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    environment:
+      - PORT=3000
+      - SOCKET_PORT=3001
+      - SOCKET_URI_LISTENER=/io/change-event
+      - SOCKET_URI_EMITTER=/io/notify-change-event
+      - SOCKET_SERVICE_URL=http://api-gateway:3001/io
+      - ORDER_SERVICE_URL=http://order-service:3002/ms
+      - KITCHEN_SERVICE_URL=http://kitchen-service:3003/ms
+      - INVENTORY_SERVICE_URL=http://inventory-service:3004/ms
+      - MARKET_SERVICE_URL=http://market-service:3005/ms
+    depends_on:
+      - order-service
+      - kitchen-service
+      - inventory-service
+      - market-service
+    networks:
+      - alegra-network
+
+  order-service:
+    image: order-service:latest
+    container_name: order-service
+    environment:
+      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - PORT=3002
+      - NAME_SPACE=/ms/order
+      - SECRET_KEY=Fr33LunchD4y
+      - MAX_LISTENERS=20
+      - KAFKA_BROKER=alegra-kafka-broker:9092
+      - KAFKA_CLIENT_ID=order-service
+      - KAFKA_KITCHEN_TOPIC=kitchen-topic
+      - KAFKA_ORDER_TOPIC=order-topic
+      - SOCKET_HOST=http://api-gateway:3001
+      - SOCKET_URI_EMITTER=/io/change-event
+    depends_on:
+      - alegra-mongodb
+      - alegra-kafka-broker
+    networks:
+      - alegra-network
+  
+  kitchen-service:
+    image: kitchen-service:latest
+    container_name: kitchen-service
+    environment:
+      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - PORT=3003
+      - NAME_SPACE=/ms/kitchen
+      - MAX_LISTENERS=20
+      - KAFKA_BROKER=alegra-kafka-broker:9092
+      - KAFKA_CLIENT_ID=kitchen-service
+      - KAFKA_KITCHEN_TOPIC=kitchen-topic
+      - KAFKA_INVENTORY_TOPIC=inventory-topic
+      - KAFKA_INGREDIENTS_TOPIC=ingredients-topic
+      - KAFKA_ORDER_TOPIC=order-topic
+      - KITCHEN_TIME=10000
+      - SOCKET_HOST=http://api-gateway:3001
+      - SOCKET_URI_EMITTER=/io/change-event
+    depends_on:
+      - alegra-mongodb
+      - alegra-kafka-broker
+    networks:
+      - alegra-network
+  
+  inventory-service:
+    image: inventory-service:latest
+    container_name: inventory-service
+    environment:
+      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - PORT=3004
+      - NAME_SPACE=/ms/inventory
+      - MAX_LISTENERS=20
+      - KAFKA_BROKER=alegra-kafka-broker:9092
+      - KAFKA_CLIENT_ID=inventory-service
+      - KAFKA_INVENTORY_TOPIC=inventory-topic
+      - KAFKA_MARKET_TOPIC=market-topic
+      - KAFKA_INGREDIENTS_TOPIC=ingredients-topic
+      - SOCKET_HOST=http://api-gateway:3001
+      - SOCKET_URI_EMITTER=/io/change-event
+    depends_on:
+      - alegra-mongodb
+      - alegra-kafka-broker
+    networks:
+      - alegra-network
+
+  market-service:
+    image: market-service:latest
+    container_name: market-service
+    environment:
+      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - PORT=3005
+      - NAME_SPACE=/ms/market
+      - MAX_LISTENERS=20
+      - KAFKA_BROKER=alegra-kafka-broker:9092
+      - KAFKA_CLIENT_ID=market-service
+      - KAFKA_MARKET_TOPIC=market-topic
+      - KAFKA_INVENTORY_TOPIC=inventory-topic
+      - MARKET_TIME=10000
+      - MARKET_PLACE_URI=https://recruitment.alegra.com/api/farmers-market/buy
+    depends_on:
+      - alegra-mongodb
+      - alegra-kafka-broker
+    networks:
+      - alegra-network
+  
+  alegra-mongodb:
+    image: mongo:latest
+    container_name: alegra-mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - alegra-network
+
+  alegra-zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: alegra-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2181:2181
+    networks:
+      - alegra-network
+
+  alegra-kafka-broker:
+    image: confluentinc/cp-kafka:latest
+    container_name: alegra-kafka-broker
+    depends_on:
+      - alegra-zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'alegra-zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://alegra-kafka-broker:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+    networks:
+      - alegra-network
+
+  alegra-frontend:
+    image: alegra-frontend:latest
+    container_name: alegra-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api-gateway
+    networks:
+      - alegra-network
+
+networks:
+  alegra-network:
+    driver: bridge

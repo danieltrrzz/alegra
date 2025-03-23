@@ -6,7 +6,7 @@
     <div class="row mt-5">
       @for(dish of dishes; track dish) {
       <div class="col-sm-12 col-md-4 col-lg-2">
-        <div class="card">
+        <div class="card mt-3">
           <div class="card-body bg-light">
             <h5 class="card-title">{{ dish.name }}</h5>
             <p class="card-text">Ingredientes</p>
@@ -32,7 +32,7 @@
       <div class="col-sm-12 col-md-2 rounded p-3 bg-warning-subtle" style="overflow-y: auto; height: 500px;">
         <h5 class="text-center">En preparación</h5>
         @for(order of ordersBoard.PREPARATION; track order) {
-          <div class="card">
+          <div class="card mt-3">
             <div class="card-body bg-light">
               <p class="card-text">Orden N° {{ order._id }}</p>
               <p class="card-text">{{ order.dish?.name }}</p>
@@ -46,7 +46,7 @@
       <div class="col-sm-12 col-md-2 rounded p-3 bg-danger-subtle" style="overflow-y: auto; height: 500px;">
         <h5 class="text-center">En la cocina</h5>
         @for(order of ordersBoard.KITCHEN; track order) {
-          <div class="card">
+          <div class="card mt-3">
             <div class="card-body bg-light">
               <p class="card-text">Orden N° {{ order._id }}</p>
               <p class="card-text">{{ order.dish?.name }}</p>
@@ -60,7 +60,7 @@
       <div class="col-sm-12 col-md-2 rounded p-3 bg-info-subtle" style="overflow-y: auto; height: 500px;">
         <h5 class="text-center">Finalizadas</h5>
         @for(order of ordersBoard.FINISHED; track order) {
-          <div class="card">
+          <div class="card mt-3">
             <div class="card-body bg-light">
               <p class="card-text">Orden N° {{ order._id }}</p>
               <p class="card-text">{{ order.dish?.name }}</p>
@@ -74,7 +74,7 @@
       <div class="col-sm-12 col-md-2 rounded p-3 bg-success-subtle" style="overflow-y: auto; height: 500px;">
         <h5 class="text-center">Entregadas</h5>
         @for(order of ordersBoard.DELIVERED; track order) {
-          <div class="card">
+          <div class="card mt-3">
             <div class="card-body bg-light">
               <p class="card-text">Orden N° {{ order._id }}</p>
               <p class="card-text">{{ order.dish?.name }}</p>
