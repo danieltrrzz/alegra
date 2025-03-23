@@ -1,0 +1,13 @@
+logger:
+  level: info
+  format: plain
+  output: console
+
+edgemicro:
+  process:
+    cluster: false
+
+db:
+  redis:
+    emulate: true
+    namespace: EG

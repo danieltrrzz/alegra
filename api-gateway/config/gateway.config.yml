@@ -1,0 +1,110 @@
+http:
+  port: 3000
+
+apiEndpoints:
+  order:
+    host: "*"
+    paths:
+      - "/order"
+      - "/order/:id"
+
+  dish:
+    host: "*"
+    paths:
+      - "/kitchen"
+      - "/kitchen/:id"
+
+  ingredient:
+    host: "*"
+    paths:
+      - "/inventory"
+      - "/inventory/:ingredient"
+
+  purchase:
+    host: "*"
+    paths:
+      - "/market"
+      - "/market/:id"
+
+serviceEndpoints:
+  orderService:
+    url: "http://localhost:3001/ms"
+
+  kitchenService:
+    url: "http://localhost:3002/ms"
+
+  inventoryService:
+    url: "http://localhost:3003/ms"
+
+  marketService:
+    url: "http://localhost:3004/ms"
+
+policies:
+  - cors
+  - proxy
+
+pipelines:
+  orderPipeline:
+    apiEndpoints:
+      - order
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods:
+                - "GET"
+                - "POST"
+                - "OPTIONS"
+              allowedHeaders:
+                - "Content-Type"
+      - proxy:
+          - action:
+              serviceEndpoint: orderService
+
+  dishPipeline:
+    apiEndpoints:
+      - dish
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods:
+                - "GET"
+                - "OPTIONS"
+              allowedHeaders:
+                - "Content-Type"
+      - proxy:
+          - action:
+              serviceEndpoint: kitchenService
+
+  ingredientPipeline:
+    apiEndpoints:
+      - ingredient
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods:
+                - "GET"
+                - "OPTIONS"
+              allowedHeaders:
+                - "Content-Type"
+      - proxy:
+          - action:
+              serviceEndpoint: inventoryService
+
+  purchaseHistoryPipeline:
+    apiEndpoints:
+      - purchase
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods:
+                - "GET"
+                - "OPTIONS"
+              allowedHeaders:
+                - "Content-Type"
+      - proxy:
+          - action:
+              serviceEndpoint: marketService
