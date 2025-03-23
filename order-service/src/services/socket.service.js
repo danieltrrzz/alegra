@@ -22,16 +22,11 @@ module.exports = (() => {
       }
     });
 
-    io.on("connection", (socket) => {
-      
+    io.on("connection", (socket) => {      
       socket.on(SOCKET_URI_LISTENER, (notify) => {
         console.log("Evento recibido: ", notify);
         // Emitir el evento a todos los clientes conectados
         io.emit(SOCKET_URI_EMITTER, notify);
-      });
-
-      socket.on("disconnect", () => {
-        console.log("Socket desconectado");
       });
     });
   };

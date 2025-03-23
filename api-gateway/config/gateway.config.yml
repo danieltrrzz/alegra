@@ -1,5 +1,5 @@
 http:
-  port: 3000
+  port: ${PORT:-3000}
 
 apiEndpoints:
   order:
@@ -26,18 +26,23 @@ apiEndpoints:
       - "/market"
       - "/market/:id"
 
+  notifyChangeEvent:
+    host: "*"
+    paths:
+      - "/io/notify-change-event"
+
 serviceEndpoints:
   orderService:
-    url: "http://localhost:3001/ms"
+    url: "${ORDER_SERVICE_URL:-http://localhost:3001/ms}"
 
   kitchenService:
-    url: "http://localhost:3002/ms"
+    url: "${KITCHEN_SERVICE_URL:-http://localhost:3002/ms}"
 
   inventoryService:
-    url: "http://localhost:3003/ms"
+    url: "${INVENTORY_SERVICE_URL:-http://localhost:3003/ms}"
 
   marketService:
-    url: "http://localhost:3004/ms"
+    url: "${MARKET_SERVICE_URL:-http://localhost:3004/ms}"
 
 policies:
   - cors
@@ -57,6 +62,7 @@ pipelines:
                 - "OPTIONS"
               allowedHeaders:
                 - "Content-Type"
+                - "Authorization"
       - proxy:
           - action:
               serviceEndpoint: orderService
@@ -73,6 +79,7 @@ pipelines:
                 - "OPTIONS"
               allowedHeaders:
                 - "Content-Type"
+                - "Authorization"
       - proxy:
           - action:
               serviceEndpoint: kitchenService
@@ -89,6 +96,7 @@ pipelines:
                 - "OPTIONS"
               allowedHeaders:
                 - "Content-Type"
+                - "Authorization"
       - proxy:
           - action:
               serviceEndpoint: inventoryService
@@ -105,6 +113,24 @@ pipelines:
                 - "OPTIONS"
               allowedHeaders:
                 - "Content-Type"
+                - "Authorization"
       - proxy:
           - action:
               serviceEndpoint: marketService
+
+  notifyChangeEventPipeline:
+    apiEndpoints:
+      - notifyChangeEvent
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods:
+                - "GET"
+                - "OPTIONS"
+              allowedHeaders:
+                - "Content-Type"
+                - "Authorization"
+      - proxy:
+          - action:
+              serviceEndpoint: orderService

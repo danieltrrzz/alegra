@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-ms-12">
+    <h2 class="text-center">Jornada de almuerzo ¡Gratis!</h2>
+  </div>
+  <div class="col-ms-12">
+    <div class="row mt-5">
+      @for(dish of dishes; track dish) {
+      <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="card">
+          <div class="card-body bg-light">
+            <h5 class="card-title">{{ dish.name }}</h5>
+            <p class="card-text">Ingredientes</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            @for(ingredient of dish.ingredients; track ingredient) {
+            <li class="list-group-item">{{ ingredient.quantity }} {{ ingredient.name }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-light mt-4" (click)="onSubmitOrder()">
+      <h1 class="display-6">Ordenar un plato de comida</h1>
+    </button>
+  </div>
+  <div class="col-sm-12 mt-5">
+    <h2 class="text-center">Estado de las órdenes</h2>
+    <div class="row mt-5">
+      <div class="col-sm-12 col-md-3">
+        <h5 class="text-center">En preparación</h5>
+        @for(order of ordersBoard.PREPARATION; track order) {
+          <div class="card m-2" style="width: 100%;">
+            <div class="card-body bg-light">
+              <p class="card-text">Orden N° {{ order._id }}</p>
+              <p class="card-text">{{ order.dish?.name }}</p>
+            </div>
+            <div class="card-footer bg-light">
+              <p class="card-text">Fecha: {{ order.createdAt }}</p>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h5 class="text-center">En la cocina</h5>
+        @for(order of ordersBoard.KITCHEN; track order) {
+          <div class="card m-2" style="width: 100%;">
+            <div class="card-body bg-light">
+              <p class="card-text">Orden N° {{ order._id }}</p>
+              <p class="card-text">{{ order.dish?.name }}</p>
+            </div>
+            <div class="card-footer bg-light">
+              <p class="card-text">Fecha: {{ order.createdAt }}</p>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h5 class="text-center">Finalizadas</h5>
+        @for(order of ordersBoard.FINISHED; track order) {
+          <div class="card m-2" style="width: 100%;">
+            <div class="card-body bg-light">
+              <p class="card-text">Orden N° {{ order._id }}</p>
+              <p class="card-text">{{ order.dish?.name }}</p>
+            </div>
+            <div class="card-footer bg-light">
+              <p class="card-text">Fecha: {{ order.createdAt }}</p>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <h5 class="text-center">Entregadas</h5>
+        @for(order of ordersBoard.DELIVERED; track order) {
+          <div class="card m-2" style="width: 100%;">
+            <div class="card-body bg-light">
+              <p class="card-text">Orden N° {{ order._id }}</p>
+              <p class="card-text">{{ order.dish?.name }}</p>
+            </div>
+            <div class="card-footer bg-light">
+              <p class="card-text">Fecha: {{ order.createdAt }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

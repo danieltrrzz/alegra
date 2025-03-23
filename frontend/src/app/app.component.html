@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand m-3" href="javascript:void(0)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Logo_de_Alegra.png/640px-Logo_de_Alegra.png" width="200px">
+  </a>
+  <div class="collapse navbar-collapse mt-3" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/orders']" routerLinkActive="router-link-active"><h4>Órdenes</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/ingredients']" routerLinkActive="router-link-active"><h4>Ingredientes</h4></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="p-5">
+  <router-outlet/>
+</div>
