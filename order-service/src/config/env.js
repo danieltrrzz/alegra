@@ -14,8 +14,7 @@ const {
   KAFKA_KITCHEN_TOPIC = 'kitchen-topic',
   KAFKA_ORDER_TOPIC = 'order-topic',
   SOCKET_HOST = 'http://localhost:3001',
-  SOCKET_URI_LISTENER = '/io/change-event',
-  SOCKET_URI_EMITTER = '/io/notify-change-event'
+  SOCKET_URI_EMITTER = '/io/change-event'
 } = process.env;
 
 module.exports = {
@@ -29,6 +28,5 @@ module.exports = {
   KAFKA_KITCHEN_TOPIC,
   KAFKA_ORDER_TOPIC,
   SOCKET_HOST,
-  SOCKET_URI_LISTENER,
   SOCKET_URI_EMITTER
 };

@@ -4,7 +4,8 @@
 
 export const environment = {
   PRODUCTION: false,
-  API_BASE: "http://localhost:3000"
+  API_BASE: "http://localhost:3000",
+  SOCKET_BASE: "http://localhost:3001"
 };
 
 /*

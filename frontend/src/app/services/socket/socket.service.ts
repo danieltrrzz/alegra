@@ -9,7 +9,7 @@ export class SocketService extends Socket {
 
   public listenOrder: EventEmitter<any> = new EventEmitter();
   constructor() {
-    super({ url: 'http://localhost:3001' });
+    super({ url: environment.SOCKET_BASE });
     this.listen();
   };
 

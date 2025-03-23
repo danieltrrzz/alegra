@@ -26,23 +26,18 @@ apiEndpoints:
       - "/market"
       - "/market/:id"
 
-  notifyChangeEvent:
-    host: "*"
-    paths:
-      - "/io/notify-change-event"
-
 serviceEndpoints:
   orderService:
-    url: "${ORDER_SERVICE_URL:-http://localhost:3001/ms}"
+    url: "${ORDER_SERVICE_URL:-http://localhost:3002/ms}"
 
   kitchenService:
-    url: "${KITCHEN_SERVICE_URL:-http://localhost:3002/ms}"
+    url: "${KITCHEN_SERVICE_URL:-http://localhost:3003/ms}"
 
   inventoryService:
-    url: "${INVENTORY_SERVICE_URL:-http://localhost:3003/ms}"
+    url: "${INVENTORY_SERVICE_URL:-http://localhost:3004/ms}"
 
   marketService:
-    url: "${MARKET_SERVICE_URL:-http://localhost:3004/ms}"
+    url: "${MARKET_SERVICE_URL:-http://localhost:3005/ms}"
 
 policies:
   - cors
@@ -117,20 +112,3 @@ pipelines:
       - proxy:
           - action:
               serviceEndpoint: marketService
-
-  notifyChangeEventPipeline:
-    apiEndpoints:
-      - notifyChangeEvent
-    policies:
-      - cors:
-          - action:
-              origin: "*"
-              methods:
-                - "GET"
-                - "OPTIONS"
-              allowedHeaders:
-                - "Content-Type"
-                - "Authorization"
-      - proxy:
-          - action:
-              serviceEndpoint: orderService

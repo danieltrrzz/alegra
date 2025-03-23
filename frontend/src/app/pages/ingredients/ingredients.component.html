@@ -1,32 +1,37 @@
-<div class="row">
-  <div class="col-ms-12 col-md-6">
+<div class="row justify-content-around">
+  <div class="col-ms-12 col-md-5 rounded p-3" style="background-color: #30aba9;">
     <h2 class="text-center">Invetario de ingredientes</h2>
-
-    @for(ingredient of inventories; track ingredient) {
-    <div class="card m-2" style="width: 100%;">
-      <div class="card-body bg-light">
-        <h5 class="card-title">{{ ingredient.ingredient }}</h5>
-        <p class="card-text">Stock: {{ ingredient.stock }}</p>
-      </div>
+    <div class="w-100" style="overflow-y: auto; height: 600px;">
+      @for(ingredient of inventories; track ingredient) {
+        <div class="card m-2">
+          <div class="card-body bg-light">
+            <h5 class="card-title">{{ ingredient.ingredient }}</h5>
+            <p class="card-text">Stock: {{ ingredient.stock }}</p>
+          </div>
+        </div>
+        }
     </div>
-    }
   </div>
-  <div class="col-ms-12 col-md-6">
+  <div class="col-ms-12 col-md-5 rounded p-3" style="background-color: #30aba9;">
     <h2 class="text-center">Historial de compras</h2>
 
-    @for(purchase of purchases; track purchase) {
-    <div class="card m-2" style="width: 100%;">
-      <div class="card-body bg-light">
-        <h5 class="card-title">Compra N° {{ purchase._id }}</h5>
-        <p class="card-text">Orden N° {{ purchase.orderId }}</p>
-        <p class="card-text">Plato de comida: {{ purchase.dishName }}</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        @for(ingredient of purchase.ingredientsPurchased; track ingredient) {
-        <li class="list-group-item">{{ ingredient.quantityPurchase }} {{ ingredient.ingredient }}</li>
-        }
-      </ul>
+    <div class="w-100" style="overflow-y: auto; height: 600px;">
+      @for(purchase of purchases; track purchase) {
+        <div class="card m-2">
+          <div class="card-body bg-light">
+            <h5 class="card-title">Compra N° {{ purchase._id }}</h5>
+            <p class="card-text">Orden de comida N° {{ purchase.orderId }}<br>Plato: {{ purchase.dishName }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            @for(ingredient of purchase.ingredientsPurchased; track ingredient) {
+            <li class="list-group-item">Ingrediente: {{ ingredient.ingredient }}<br>Cantidad comprada: {{ ingredient.quantityPurchase }}</li>
+            }
+          </ul>
+          <div class="card-footer bg-light">
+            <p class="card-text">Fecha: {{ purchase.createdAt }}</p>
+          </div>
+        </div>
+      }
     </div>
-    }
   </div>
 </div>

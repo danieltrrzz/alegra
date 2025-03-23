@@ -66,7 +66,7 @@ export class IngredientsComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (result: IPurchaseHistory[]) => {
           this.purchases = result && result.length
-            ? result.map((purchase) => {
+            ? result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((purchase) => {
               purchase.createdAt = this.formatDate(purchase.createdAt);
               return purchase;
             })
