@@ -173,6 +173,39 @@ mongoimport --db DBFreeLunchDay --collection inventories --file /ruta/a/DBFreeLu
 ```
 Este proceso importará los datos de las colecciones **dishes** e **inventories** a la base de datos **DBFreeLunchDay** desde los archivos JSON correspondientes.
 
+### 6. Crear los tópicos en Kafka: Puentes de comunicación entre los microservicios
+Cuando inicies los servicios, Kafka se levantará automáticamente. Una vez que Kafka esté en funcionamiento, puedes acceder al contenedor de Kafka y crear los tópicos necesarios para la comunicación entre los microservicios. A continuación, te mostramos los pasos para hacerlo
+
+#### Después de ejecutar el docker-compose, abre una terminal Bash y conéctate al contenedor de Kafka con el siguiente comando:
+```bash
+winpty docker exec -it alegra-kafka-broker bash
+```
+#### Crear los tópicos en Kafka
+```bash
+kafka-topics --bootstrap-server alegra-kafka-broker:9092 --create --topic kitchen-topic
+kafka-topics --bootstrap-server alegra-kafka-broker:9092 --create --topic order-topic
+kafka-topics --bootstrap-server alegra-kafka-broker:9092 --create --topic inventory-topic
+kafka-topics --bootstrap-server alegra-kafka-broker:9092 --create --topic market-topic
+kafka-topics --bootstrap-server alegra-kafka-broker:9092 --create --topic ingredients-topic
+```
+#### Conectarse a los tópicos para emitir mensajes (No es recomentado enviar mensajes ya que estos seran enviados por los microservicios)
+```bash
+kafka-console-producer --bootstrap-server alegra-kafka-broker:9092 --topic kitchen-topic
+kafka-console-producer --bootstrap-server alegra-kafka-broker:9092 --topic order-topic
+kafka-console-producer --bootstrap-server alegra-kafka-broker:9092 --topic inventory-topic
+kafka-console-producer --bootstrap-server alegra-kafka-broker:9092 --topic market-topic
+kafka-console-producer --bootstrap-server alegra-kafka-broker:9092 --topic ingredients-topic
+```
+#### Conectarse a los tópicos para recibir mensajes
+```bash
+kafka-console-consumer --bootstrap-server alegra-kafka-broker:9092 --topic kitchen-topic -from-beginning
+kafka-console-consumer --bootstrap-server alegra-kafka-broker:9092 --topic order-topic -from-beginning
+kafka-console-consumer --bootstrap-server alegra-kafka-broker:9092 --topic inventory-topic -from-beginning
+kafka-console-consumer --bootstrap-server alegra-kafka-broker:9092 --topic market-topic -from-beginning
+kafka-console-consumer --bootstrap-server alegra-kafka-broker:9092 --topic ingredients-topic -from-beginning
+```
+Nota: La opción --from-beginning permite consumir los mensajes desde el inicio del tópico. Si prefieres consumir solo los mensajes nuevos, omite esta opción.
+
 ## Detalles Técnicos
 ### Dockerfiles
 Cada servicio tiene un archivo Dockerfile que especifica cómo construir la imagen para cada microservicio:
@@ -182,3 +215,8 @@ Cada servicio tiene un archivo Dockerfile que especifica cómo construir la imag
 - kitchen-service/Dockerfile
 - inventory-service/Dockerfile
 - market-service/Dockerfile
+
+## Recomendacion
+Después de haber completado todos los pasos de implementación mencionados anteriormente, es posible que algunos microservicios no se hayan conectado correctamente a Kafka, ya que los tópicos aún no existían al momento de su inicio. Por lo tanto, te recomiendo reiniciar únicamente los microservicios, ya que estos deberían conectarse correctamente a Kafka una vez que los tópicos estén creados.
+
+Este paso es crucial para asegurar que todos los microservicios se suscriban a los tópicos adecuados y comiencen a procesar los mensajes correctamente.
