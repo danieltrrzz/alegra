@@ -29,7 +29,7 @@ services:
     image: order-service:latest
     container_name: order-service
     environment:
-      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - MONGO_URI=mongodb://alegra:Fr33LunchD4y@alegra-mongodb:27017/DBFreeLunchDay?authSource=admin
       - PORT=3002
       - NAME_SPACE=/ms/order
       - SECRET_KEY=Fr33LunchD4y
@@ -50,7 +50,7 @@ services:
     image: kitchen-service:latest
     container_name: kitchen-service
     environment:
-      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - MONGO_URI=mongodb://alegra:Fr33LunchD4y@alegra-mongodb:27017/DBFreeLunchDay?authSource=admin
       - PORT=3003
       - NAME_SPACE=/ms/kitchen
       - MAX_LISTENERS=20
@@ -73,7 +73,7 @@ services:
     image: inventory-service:latest
     container_name: inventory-service
     environment:
-      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - MONGO_URI=mongodb://alegra:Fr33LunchD4y@alegra-mongodb:27017/DBFreeLunchDay?authSource=admin
       - PORT=3004
       - NAME_SPACE=/ms/inventory
       - MAX_LISTENERS=20
@@ -94,7 +94,7 @@ services:
     image: market-service:latest
     container_name: market-service
     environment:
-      - MONGO_URI=mongodb://alegra-mongodb:27017/DBFreeLunchDay
+      - MONGO_URI=mongodb://alegra:Fr33LunchD4y@alegra-mongodb:27017/DBFreeLunchDay?authSource=admin
       - PORT=3005
       - NAME_SPACE=/ms/market
       - MAX_LISTENERS=20
@@ -115,6 +115,9 @@ services:
     container_name: alegra-mongodb
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alegra
+      MONGO_INITDB_ROOT_PASSWORD: Fr33LunchD4y
     networks:
       - alegra-network
 
